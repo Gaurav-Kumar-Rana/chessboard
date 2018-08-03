@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ChessBoard from'./ChessBoard/chessboard.js';
+import Pieces from'./ChessBoard/pieces.js';
+
+let info  = require('./chessboard_data.json');
+let info_chessboard = info.chessboard;
+let info_playerdata = info.playerdata;
+let info_team = info.team;
+const eachCellWidth = 80 * 8;
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="chessboard-container" style={{'width':eachCellWidth,"height":eachCellWidth}}>
+        <Pieces chessboardPlayer={info_playerdata} team={info_team}/>
+        <ChessBoard chessboardData={info_chessboard}/>
       </div>
     );
   }
 }
-
 export default App;

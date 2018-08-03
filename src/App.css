@@ -1,28 +1,117 @@
-.App {
-  text-align: center;
+*{
+  box-sizing:content-box;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+:root{
+  --cell-width:80px;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.chessboard-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid #000;
 }
-
-.App-title {
-  font-size: 1.5em;
+/* .chess-cell-container {
+  border: 1px solid #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1;
+} */
+.chess-cell{
+  height:var(--cell-width);
+  width:var(--cell-width);
+  float: left;
 }
-
-.App-intro {
-  font-size: large;
+.chess-cell.black{
+  background-color: rgba(0, 0, 0, 0.7);
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.chess-cell.white{
+  background-color: #fff;
+}
+.pieces {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  z-index: 1;
+  cursor: move;
+  box-sizing: border-box;
+  margin: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+}
+.pieces.white{
+  top:0px;
+}
+.pieces.black{
+  bottom:0px;
+}
+.piece-conatiner {
+  position: relative;
+  margin: 0px auto;
+}
+/*Placement of Pieces*/
+.pieces.white.Rook{
+  background-image: url('Images/Rook_white.svg');
+}
+.pieces.black.Rook{
+  background-image: url('Images/Rook_black.svg');
+}
+.pieces.white.Knight{
+  background-image: url('Images/Knight_white.svg');
+}
+.pieces.black.Knight{
+  background-image: url('Images/Knight_black.svg');
+}
+.pieces.white.Bishop{
+  background-image: url('Images/Bishop_white.svg');
+}
+.pieces.black.Bishop{
+  background-image: url('Images/Bishop_black.svg');
+}
+.pieces.white.Queen{
+  background-image: url('Images/Queen_white.svg');
+}
+.pieces.black.Queen{
+  background-image: url('Images/Queen_black.svg');
+}
+.pieces.white.King{
+  background-image: url('Images/King_white.svg');
+}
+.pieces.black.King{
+  background-image: url('Images/King_black.svg');
+}
+.pieces.white.Pawn{
+  top:var(--cell-width);
+  background-image: url('Images/Pawn_white.svg');
+}
+.pieces.black.Pawn{
+  bottom:var(--cell-width);
+  background-image: url('Images/Pawn_black.svg');
+}
+.pieces.white.Rook.iden_1,.pieces.black.Rook.iden_1,.pieces.white.Pawn.iden_1,.pieces.black.Pawn.iden_1{
+  left: calc((var(--cell-width) * 8) - (var(--cell-width) * 1));
+}
+.pieces.white.Knight.iden_1,.pieces.black.Knight.iden_1,.pieces.white.Pawn.iden_2,.pieces.black.Pawn.iden_2{
+  left: calc((var(--cell-width) * 8) - (var(--cell-width) * 2));
+}
+.pieces.white.Bishop.iden_1,.pieces.black.Bishop.iden_1,.pieces.white.Pawn.iden_3,.pieces.black.Pawn.iden_3{
+  left: calc((var(--cell-width) * 8) - (var(--cell-width) * 3));
+}
+.pieces.white.Queen,.pieces.black.Queen,.pieces.white.Pawn.iden_4,.pieces.black.Pawn.iden_4{
+  left: calc((var(--cell-width) * 8) - (var(--cell-width) * 4));
+}
+.pieces.white.King,.pieces.black.King,.pieces.white.Pawn.iden_5,.pieces.black.Pawn.iden_5{
+  left: calc((var(--cell-width) * 8) - (var(--cell-width) * 5));
+}
+.pieces.white.Bishop.iden_2,.pieces.black.Bishop.iden_2,.pieces.white.Pawn.iden_6,.pieces.black.Pawn.iden_6{
+  left: calc((var(--cell-width) * 8) - (var(--cell-width) * 6));
+}
+.pieces.white.Knight.iden_2,.pieces.black.Knight.iden_2,.pieces.white.Pawn.iden_7,.pieces.black.Pawn.iden_7{
+  left: calc((var(--cell-width) * 8) - (var(--cell-width) * 7));
+}
+.pieces.white.Rook.iden_2,.pieces.black.Rook.iden_2,.pieces.white.Pawn.iden_8,.pieces.black.Pawn.iden_8{
+  left: calc((var(--cell-width) * 8) - (var(--cell-width) * 8));
 }
